@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quản lý xét nghiệm</title>
+    <link rel="stylesheet" href="assets/css/st.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+        <h2 class="sidebar-logo">EMR SYSTEM</h2>
+
+        <a href="dashboard.html"><i class="fa fa-gauge"></i> Dashboard</a>
+        <a href="patients.html"><i class="fa fa-users"></i> Bệnh nhân</a>
+        <a href="appointments.html"><i class="fa fa-calendar-check"></i> Lịch hẹn</a>
+        <a href="records.html"><i class="fa fa-folder-open"></i> Hồ sơ bệnh án</a>
+        <a class="active" href="lab_test.html"><i class="fa-solid fa-flask"></i> Xét nghiệm</a>
+        <a href="prescriptions.html"><i class="fa fa-file-medical"></i> Đơn thuốc</a>
+        <a href="statistics.html"><i class="fa fa-chart-line"></i> Thống kê</a>
+        <a href="users.html"><i class="fa fa-user-cog"></i> Quản lý người dùng</a>
+    </div>
+
+<!-- MAIN CONTENT -->
+<div class="main-content" id="main">
+    
+    <!-- TOPBAR -->
+    <div class="topbar">
+        <div class="toggle-btn" onclick="toggleSidebar()">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <div class="topbar-user" onclick="toggleDropdown()">
+            <img src="assets/img/user.jpg" alt="">
+            <span>Admin</span>
+        </div>
+
+        <ul class="dropdown-menu" id="dropdown">
+            <li><a href="#">Thông tin cá nhân</a></li>
+            <li><a href="#">Đăng xuất</a></li>
+        </ul>
+    </div>
+
+    <!-- CONTENT WRAPPER -->
+    <div class="content-wrapper" style="padding: 25px;">
+
+    <div style="
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    ">
+        <h2 style="margin-bottom: 20px;">🧪 Quản Lý Xét Nghiệm</h2>
+
+        <!-- Thanh công cụ -->
+        <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+            <input type="text" placeholder="Tìm bệnh nhân, mã xét nghiệm..."
+                style="width: 250px; padding: 10px; border: 1px solid #ccc; border-radius: 6px;">
+
+            <a href="add_lab_test.html" style="
+                padding: 10px 16px;
+                background: #0d6efd;
+                color: white;
+                border-radius: 6px;
+                text-decoration: none;
+                font-size: 15px;
+            ">+ Thêm xét nghiệm</a>
+        </div>
+
+        <!-- Bảng danh sách xét nghiệm -->
+        <table style="width: 100%; border-collapse: collapse;">
+            <thead>
+                <tr style="background: #e9ecef;">
+                    <th style="padding: 12px; border: 1px solid #ddd;">Mã XN</th>
+                    <th style="padding: 12px; border: 1px solid #ddd;">Bệnh nhân</th>
+                    <th style="padding: 12px; border: 1px solid #ddd;">Loại xét nghiệm</th>
+                    <th style="padding: 12px; border: 1px solid #ddd;">Ngày thực hiện</th>
+                    <th style="padding: 12px; border: 1px solid #ddd;">Kết quả</th>
+                    <th style="padding: 12px; border: 1px solid #ddd;">Thao tác</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #ddd;">XN001</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">Nguyễn Văn A</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">Xét nghiệm máu</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">10/01/2025</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">Bình thường</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">
+                        <a href="view_lab_test.html" style="margin-right: 10px;">Xem</a>
+                        <a href="edit_lab_test.html" style="margin-right: 10px;">Sửa</a>
+                        <a href="#" style="color: red;">Xóa</a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #ddd;">XN002</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">Trần Thị B</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">Xét nghiệm nước tiểu</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">11/01/2025</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">Trong giới hạn</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">
+                        <a href="view_lab_test.html" style="margin-right: 10px;">Xem</a>
+                        <a href="edit_lab_test.html" style="margin-right: 10px;">Sửa</a>
+                        <a href="#" style="color: red;">Xóa</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+
+<script>
+function toggleSidebar() {
+    document.getElementById("sidebar").classList.toggle("active");
+    document.getElementById("main").classList.toggle("active");
+}
+
+function toggleDropdown() {
+    document.getElementById("dropdown").classList.toggle("show");
+}
+</script>
+
+</body>
+</html>

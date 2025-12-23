@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="assets/css/st.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+        <h2 class="sidebar-logo">EMR SYSTEM</h2>
+
+        <a href="dashboard.html"><i class="fa fa-gauge"></i> Dashboard</a>
+        <a href="patients.html"><i class="fa fa-users"></i> Bệnh nhân</a>
+        <a href="appointments.html"><i class="fa fa-calendar-check"></i> Lịch hẹn</a>
+        <a href="records.html"><i class="fa fa-folder-open"></i> Hồ sơ bệnh án</a>
+        <a href="lab_test.html"><i class="fa-solid fa-flask"></i> Xét nghiệm</a>
+        <a href="prescriptions.html"><i class="fa fa-file-medical"></i> Đơn thuốc</a>
+        <a href="statistics.html"><i class="fa fa-chart-line"></i> Thống kê</a>
+        <a class="active" href="users.html"><i class="fa fa-user-cog"></i> Quản lý người dùng</a>
+    </div>
+
+<!-- MAIN CONTENT -->
+<div class="main-content" id="main">
+    
+    <!-- TOPBAR -->
+    <div class="topbar">
+        <div class="toggle-btn" onclick="toggleSidebar()">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <div class="topbar-user" onclick="toggleDropdown()">
+            <img src="assets/img/user.jpg" alt="">
+            <span>Admin</span>
+        </div>
+
+        <ul class="dropdown-menu" id="dropdown">
+            <li><a href="#">Thông tin cá nhân</a></li>
+            <li><a href="#">Đăng xuất</a></li>
+        </ul>
+    </div>
+
+   <h2 class="page-title">👥 Quản Lý Người Dùng</h2>
+
+<div class="card">
+    <div class="table-header">
+        <input type="text" class="search-box" placeholder="🔍 Tìm kiếm người dùng...">
+        <a href="add_user.html" class="btn-add">+ Thêm người dùng</a>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Họ tên</th>
+                <th>Email</th>
+                <th>Vai trò</th>
+                <th>Trạng thái</th>
+                <th style="text-align:center;">Hành động</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>#U001</td>
+                <td>Nguyễn Văn A</td>
+                <td>a.nguyen@example.com</td>
+                <td>Quản trị viên</td>
+                <td><span class="status active">Hoạt động</span></td>
+                <td class="action-col">
+                    <a href="view_user.html" class="btn-view">Xem</a>
+                    <a href="edit_user.html" class="btn-edit">Sửa</a>
+                    <a href="#" class="btn-delete">Xóa</a>
+                </td>
+            </tr>
+
+            <tr>
+                <td>#U002</td>
+                <td>Trần Thị B</td>
+                <td>b.tran@example.com</td>
+                <td>Bác sĩ</td>
+                <td><span class="status active">Hoạt động</span></td>
+                <td class="action-col">
+                    <a href="view_user.html" class="btn-view">Xem</a>
+                    <a href="edit_user.html" class="btn-edit">Sửa</a>
+                    <a href="#" class="btn-delete">Xóa</a>
+                </td>
+            </tr>
+
+            <tr>
+                <td>#U003</td>
+                <td>Phạm Minh C</td>
+                <td>c.pham@example.com</td>
+                <td>Nhân viên</td>
+                <td><span class="status inactive">Tạm khóa</span></td>
+                <td class="action-col">
+                    <a href="view_user.html" class="btn-view">Xem</a>
+                    <a href="edit_user.htmlml" class="btn-edit">Sửa</a>
+                    <a href="#" class="btn-delete">Xóa</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<script>
+function toggleSidebar() {
+    document.getElementById("sidebar").classList.toggle("active");
+    document.getElementById("main").classList.toggle("active");
+}
+
+function toggleDropdown() {
+    document.getElementById("dropdown").classList.toggle("show");
+}
+</script>
+
+</body>
+</html>

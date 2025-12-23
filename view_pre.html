@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="assets/css/st.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+        <h2 class="sidebar-logo">EMR SYSTEM</h2>
+
+        <a href="dashboard.html"><i class="fa fa-gauge"></i> Dashboard</a>
+        <a href="patients.html"><i class="fa fa-users"></i> Bệnh nhân</a>
+        <a href="appointments.html"><i class="fa fa-calendar-check"></i> Lịch hẹn</a>
+        <a href="records.html"><i class="fa fa-folder-open"></i> Hồ sơ bệnh án</a>
+        <a class="active" href="lab_test.html"><i class="fa-solid fa-flask"></i> Xét nghiệm</a>
+        <a href="prescriptions.html"><i class="fa fa-file-medical"></i> Đơn thuốc</a>
+        <a href="statistics.html"><i class="fa fa-chart-line"></i> Thống kê</a>
+        <a href="users.html"><i class="fa fa-user-cog"></i> Quản lý người dùng</a>
+    </div>
+
+<!-- MAIN CONTENT -->
+<div class="main-content" id="main">
+    
+    <!-- TOPBAR -->
+    <div class="topbar">
+        <div class="toggle-btn" onclick="toggleSidebar()">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <div class="topbar-user" onclick="toggleDropdown()">
+            <img src="assets/img/user.jpg" alt="">
+            <span>Admin</span>
+        </div>
+
+        <ul class="dropdown-menu" id="dropdown">
+            <li><a href="#">Thông tin cá nhân</a></li>
+            <li><a href="#">Đăng xuất</a></li>
+        </ul>
+    </div>
+
+    <!-- CONTENT WRAPPER -->
+    <div class="content-header">
+    <h2 class="page-title">📄 Chi Tiết Đơn Thuốc</h2>
+</div>
+
+<div class="card" style="padding-bottom: 20px;">
+
+    <!-- THÔNG TIN CHUNG -->
+    <h3 class="section-title">Thông tin đơn thuốc</h3>
+
+    <div class="info-grid">
+        <div>
+            <label>Mã đơn thuốc:</label>
+            <p>DT0001</p>
+        </div>
+
+        <div>
+            <label>Ngày kê:</label>
+            <p>12/01/2025</p>
+        </div>
+
+        <div>
+            <label>Bác sĩ kê:</label>
+            <p>BS. Trần Minh</p>
+        </div>
+
+        <div>
+            <label>Trạng thái:</label>
+            <p><span class="status success">Đã cấp</span></p>
+        </div>
+    </div>
+
+    <hr style="margin: 25px 0;">
+
+    <!-- THÔNG TIN BỆNH NHÂN -->
+    <h3 class="section-title">Thông tin bệnh nhân</h3>
+
+    <div class="info-grid">
+        <div>
+            <label>Họ tên:</label>
+            <p>Nguyễn Văn A</p>
+        </div>
+
+        <div>
+            <label>Ngày sinh:</label>
+            <p>22/03/1995</p>
+        </div>
+
+        <div>
+            <label>Giới tính:</label>
+            <p>Nam</p>
+        </div>
+
+        <div>
+            <label>Mã bệnh án:</label>
+            <p>HSBA-0233</p>
+        </div>
+    </div>
+
+    <hr style="margin: 25px 0;">
+
+    <!-- DANH SÁCH THUỐC -->
+    <h3 class="section-title">Danh sách thuốc</h3>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Tên thuốc</th>
+                <th>Liều dùng</th>
+                <th>Số lần / ngày</th>
+                <th>Số lượng</th>
+                <th>Ghi chú</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>Paracetamol 500mg</td>
+                <td>1 viên</td>
+                <td>3 lần/ngày</td>
+                <td>15 viên</td>
+                <td>Uống sau ăn</td>
+            </tr>
+
+            <tr>
+                <td>Vitamin C</td>
+                <td>1 viên</td>
+                <td>1 lần/ngày</td>
+                <td>10 viên</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr style="margin: 25px 0;">
+
+    <!-- GHI CHÚ -->
+    <h3 class="section-title">Ghi chú của bác sĩ</h3>
+    <p style="font-size: 15px; line-height: 1.6; margin-top: 8px;">
+        Bệnh nhân cần uống đúng liều lượng, tái khám sau 5 ngày nếu không giảm triệu chứng.
+    </p>
+
+    <div style="margin-top: 25px; display: flex; gap: 10px;">
+        <button class="btn-primary">Sửa đơn thuốc</button>
+        <button class="btn-danger" onclick="return confirm('Xóa đơn thuốc?');">Xóa đơn</button>
+    </div>
+
+</div>
+
+<script>
+function toggleSidebar() {
+    document.getElementById("sidebar").classList.toggle("active");
+    document.getElementById("main").classList.toggle("active");
+}
+
+function toggleDropdown() {
+    document.getElementById("dropdown").classList.toggle("show");
+}
+</script>
+
+</body>
+</html>

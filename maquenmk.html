@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xác nhận mã</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="auth-background">
+        <div class="auth-container">
+            <h2 class="auth-title">Xác nhận mã bảo mật</h2>
+
+            <p class="auth-desc">Nhập mã 6 số được gửi vào email của bạn.</p>
+
+            <form action="mkmoi.html" method="POST">
+                <input type="text" maxlength="6" class="auth-input" name="otp" placeholder="Nhập mã OTP" required>
+
+                <button type="submit" class="auth-button">Xác nhận</button>
+            </form>
+
+            <p class="auth-link">Không nhận được mã? <a href="forgot_password.html">Gửi lại</a></p>
+        </div>
+    </div>
+</body>
+</html>
+

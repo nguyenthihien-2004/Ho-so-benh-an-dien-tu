@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="assets/css/st.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+        <h2 class="sidebar-logo">EMR SYSTEM</h2>
+
+        <a href="dashboard.html"><i class="fa fa-gauge"></i> Dashboard</a>
+        <a href="patients.html"><i class="fa fa-users"></i> Bệnh nhân</a>
+        <a href="appointments.html"><i class="fa fa-calendar-check"></i> Lịch hẹn</a>
+        <a href="records.html"><i class="fa fa-folder-open"></i> Hồ sơ bệnh án</a>
+        <a href="lab__test.html"><i class="fa-solid fa-flask"></i> Xét nghiệm</a>
+        <a href="prescriptions.html"><i class="fa fa-file-medical"></i> Đơn thuốc</a>
+        <a href="statistics.html"><i class="fa fa-chart-line"></i> Thống kê</a>
+        <a class="active" href="users.html"><i class="fa fa-user-cog"></i> Quản lý người dùng</a>
+    </div>
+
+<!-- MAIN CONTENT -->
+<div class="main-content" id="main">
+    
+    <!-- TOPBAR -->
+    <div class="topbar">
+        <div class="toggle-btn" onclick="toggleSidebar()">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <div class="topbar-user" onclick="toggleDropdown()">
+            <img src="assets/img/user.jpg" alt="">
+            <span>Admin</span>
+        </div>
+
+        <ul class="dropdown-menu" id="dropdown">
+            <li><a href="#">Thông tin cá nhân</a></li>
+            <li><a href="#">Đăng xuất</a></li>
+        </ul>
+    </div>
+
+    <!-- CONTENT WRAPPER -->
+    <div class="content">
+
+    <div class="page-header">
+        <h2 class="page-title">Danh Sách Quyền / Vai Trò</h2>
+        <a href="add_role.html" class="btn btn-primary">
+            + Tạo vai trò mới
+        </a>
+    </div>
+
+    <!-- BẢNG DANH SÁCH QUYỀN -->
+    <div class="card">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Tên vai trò</th>
+                    <th>Mô tả</th>
+                    <th>Số người dùng</th>
+                    <th>Ngày tạo</th>
+                    <th>Thao tác</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Quản trị viên</td>
+                    <td>Toàn quyền hệ thống</td>
+                    <td>2</td>
+                    <td>01/05/2025</td>
+                    <td class="action-group">
+                        <a href="role_view.html" class="btn btn-sm btn-info">Xem</a>
+                        <a href="role_edit.html" class="btn btn-sm btn-warning">Sửa</a>
+                        <a href="#" class="btn btn-sm btn-danger">Xóa</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Bác sĩ</td>
+                    <td>Khám, chẩn đoán, kê đơn</td>
+                    <td>5</td>
+                    <td>01/05/2025</td>
+                    <td class="action-group">
+                        <a href="role_view.html" class="btn btn-sm btn-info">Xem</a>
+                        <a href="role_edit.html" class="btn btn-sm btn-warning">Sửa</a>
+                        <a href="#" class="btn btn-sm btn-danger">Xóa</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Y tá</td>
+                    <td>Hỗ trợ điều dưỡng</td>
+                    <td>4</td>
+                    <td>01/05/2025</td>
+                    <td class="action-group">
+                        <a href="role_view.html" class="btn btn-sm btn-info">Xem</a>
+                        <a href="role_edit.html" class="btn btn-sm btn-warning">Sửa</a>
+                        <a href="#" class="btn btn-sm btn-danger">Xóa</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+
+<script>
+function toggleSidebar() {
+    document.getElementById("sidebar").classList.toggle("active");
+    document.getElementById("main").classList.toggle("active");
+}
+
+function toggleDropdown() {
+    document.getElementById("dropdown").classList.toggle("show");
+}
+</script>
+
+</body>
+</html>

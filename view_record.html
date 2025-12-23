@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="assets/css/st.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+        <h2 class="sidebar-logo">EMR SYSTEM</h2>
+
+        <a href="dashboard.html"><i class="fa fa-gauge"></i> Dashboard</a>
+        <a href="patients.html"><i class="fa fa-users"></i> Bệnh nhân</a>
+        <a href="appointments.html"><i class="fa fa-calendar-check"></i> Lịch hẹn</a>
+        <a class="active" href="records.html"><i class="fa fa-folder-open"></i> Hồ sơ bệnh án</a>
+        <a href="lab_test.html"><i class="fa-solid fa-flask"></i> Xét nghiệm</a>
+        <a href="prescriptions.html"><i class="fa fa-file-medical"></i> Đơn thuốc</a>
+        <a href="statistics.html"><i class="fa fa-chart-line"></i> Thống kê</a>
+        <a href="users.html"><i class="fa fa-user-cog"></i> Quản lý người dùng</a>
+    </div>
+
+<!-- MAIN CONTENT -->
+<div class="main-content" id="main">
+    
+    <!-- TOPBAR -->
+    <div class="topbar">
+        <div class="toggle-btn" onclick="toggleSidebar()">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <div class="topbar-user" onclick="toggleDropdown()">
+            <img src="assets/img/user.jpg" alt="">
+            <span>Admin</span>
+        </div>
+
+        <ul class="dropdown-menu" id="dropdown">
+            <li><a href="#">Thông tin cá nhân</a></li>
+            <li><a href="#">Đăng xuất</a></li>
+        </ul>
+    </div>
+
+    <!-- CONTENT WRAPPER -->
+    <div class="content-wrapper" style="padding: 25px;">
+    <h2 style="margin-bottom: 20px;">Chi Tiết Hồ Sơ Bệnh Án</h2>
+
+<!-- THÔNG TIN CHUNG -->
+<div style="background: white; padding: 20px; border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1); margin-bottom: 25px;">
+
+    <h3 style="margin-bottom: 15px; color: #1d2b44;">Thông Tin Chung</h3>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+        <div><strong>Mã hồ sơ:</strong> HS001</div>
+        <div><strong>Ngày khám:</strong> 12/12/2025</div>
+        <div><strong>Bệnh nhân:</strong> Nguyễn Văn A</div>
+        <div><strong>Bác sĩ phụ trách:</strong> BS. Nguyễn Minh</div>
+    </div>
+</div>
+
+<!-- CHẨN ĐOÁN -->
+<div style="background: white; padding: 20px; border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1); margin-bottom: 25px;">
+
+    <h3 style="margin-bottom: 15px; color: #1d2b44;">Chẩn Đoán</h3>
+
+    <p style="line-height: 1.6;">
+        Bệnh nhân có biểu hiện sốt nhẹ, ho khan, đau đầu. Chẩn đoán: <strong>Cảm cúm</strong>.
+    </p>
+</div>
+
+<!-- XÉT NGHIỆM -->
+<div style="background: white; padding: 20px; border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1); margin-bottom: 25px;">
+
+    <h3 style="margin-bottom: 15px; color: #1d2b44;">Kết Quả Xét Nghiệm</h3>
+
+    <table class="table table-bordered" style="width: 100%;">
+        <thead style="background: #1d2b44; color: white;">
+            <tr>
+                <th>Tên xét nghiệm</th>
+                <th>Kết quả</th>
+                <th>Khoảng chuẩn</th>
+                <th>Ghi chú</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>Công thức máu</td>
+                <td>12.5 g/dL</td>
+                <td>12–16 g/dL</td>
+                <td>Bình thường</td>
+            </tr>
+            <tr>
+                <td>CRP</td>
+                <td>5 mg/L</td>
+                <td>0–10 mg/L</td>
+                <td>Bình thường</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- TOA THUỐC -->
+<div style="background: white; padding: 20px; border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1); margin-bottom: 25px;">
+
+    <h3 style="margin-bottom: 15px; color: #1d2b44;">Đơn Thuốc</h3>
+
+    <table class="table table-bordered" style="width: 100%;">
+        <thead style="background: #1d2b44; color: white;">
+            <tr>
+                <th>Thuốc</th>
+                <th>Liều dùng</th>
+                <th>Số lượng</th>
+                <th>Hướng dẫn</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>Paracetamol 500mg</td>
+                <td>1 viên x 3 lần/ngày</td>
+                <td>10 viên</td>
+                <td>Uống sau ăn</td>
+            </tr>
+            <tr>
+                <td>Vitamin C</td>
+                <td>1 viên x 2 lần/ngày</td>
+                <td>7 viên</td>
+                <td>Tăng sức đề kháng</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- NÚT QUAY LẠI -->
+<div style="margin-top: 20px;">
+    <a href="records.html" 
+       style="background: #1d4ed8; padding: 10px 18px; color: white; border-radius: 6px; text-decoration: none;">
+        ← Quay lại danh sách
+    </a>
+</div>
+
+    </div>
+</div>
+
+<script>
+function toggleSidebar() {
+    document.getElementById("sidebar").classList.toggle("active");
+    document.getElementById("main").classList.toggle("active");
+}
+
+function toggleDropdown() {
+    document.getElementById("dropdown").classList.toggle("show");
+}
+</script>
+
+</body>
+</html>

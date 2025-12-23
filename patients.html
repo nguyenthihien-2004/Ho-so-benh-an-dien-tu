@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quản lý bệnh nhân</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+<style>
+    body {
+        background: #f5f7fa;
+        font-family: "Segoe UI", sans-serif;
+        overflow-x: hidden;
+    }
+
+    /* ===== SIDEBAR ===== */
+    .sidebar {
+        width: 260px;
+        height: 100vh;
+        background: #142b51;
+        color: white;
+        position: fixed;
+        left: 0;
+        top: 0;
+        padding: 20px 0;
+        transition: 0.3s;
+        z-index: 100;
+    }
+
+    .sidebar.collapsed {
+        width: 80px;
+    }
+
+    .sidebar .logo {
+        font-size: 22px;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .sidebar .menu-item {
+        padding: 12px 25px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 16px;
+        color: white;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    .sidebar .menu-item:hover,
+    .sidebar .active {
+        background: rgba(255, 255, 255, 0.15);
+    }
+
+    .sidebar i {
+        font-size: 20px;
+    }
+
+    /* ===== TOPBAR ===== */
+    .topbar {
+        height: 60px;
+        background: white;
+        margin-left: 260px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 25px;
+        border-bottom: 1px solid #ddd;
+        position: fixed;
+        top: 0;
+        width: calc(100% - 260px);
+        z-index: 50;
+        transition: 0.3s;
+    }
+
+    .topbar.collapsed {
+        margin-left: 80px;
+        width: calc(100% - 80px);
+    }
+
+    .avatar {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    /* ===== CONTENT ===== */
+    .content {
+        margin-left: 260px;
+        padding: 90px 30px;
+        transition: 0.3s;
+    }
+
+    .content.collapsed {
+        margin-left: 80px;
+    }
+
+    .page-title {
+        font-size: 26px;
+        font-weight: 700;
+    }
+</style>
+</head>
+<body>
+
+<!-- ===== SIDEBAR ===== -->
+<div id="sidebar" class="sidebar">
+    <div class="logo">EMR SYSTEM</div>
+
+    <a href="dashboard.html" class="menu-item">
+        <i class="bi bi-speedometer"></i> <span>Dashboard</span>
+    </a>
+
+    <a href="patients.html" class="menu-item active">
+        <i class="bi bi-people"></i> <span>Bệnh nhân</span>
+    </a>
+
+    <a href="appointments.html" class="menu-item">
+        <i class="bi bi-calendar-check"></i> <span>Lịch hẹn</span>
+    </a>
+
+    <a href="medical_records.html" class="menu-item">
+        <i class="bi bi-folder2-open"></i> <span>Hồ sơ bệnh án</span>
+    </a>
+
+    <a href="lab_test.html" class="menu-item">
+        <i class="bi bi-vial"></i> <span>Xét nghiệm</span>
+    </a>
+
+    <a href="prescriptions.html" class="menu-item">
+        <i class="bi bi-capsule-pill"></i> <span>Đơn thuốc</span>
+    </a>
+
+    <a href="statistics.html" class="menu-item">
+        <i class="bi bi-graph-up"></i> <span>Thống kê</span>
+    </a>
+
+    <a href="users.html" class="menu-item">
+        <i class="bi bi-gear"></i> <span>Quản lý người dùng</span>
+    </a>
+</div>
+
+<!-- ===== TOPBAR ===== -->
+<div id="topbar" class="topbar">
+    <i class="bi bi-list fs-3" id="toggleSidebar" style="cursor:pointer"></i>
+
+    <div class="dropdown">
+        <div class="d-flex align-items-center dropdown-toggle" data-bs-toggle="dropdown">
+            <img src="assets/img/user.jpg" class="avatar me-2">
+            <span>Admin</span>
+        </div>
+        <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="profile.html"><i class="bi bi-person"></i> Thông tin cá nhân</a></li>
+            <li><a class="dropdown-item text-danger" href="logout.html"><i class="bi bi-box-arrow-right"></i> Đăng xuất</a></li>
+        </ul>
+    </div>
+</div>
+
+<!-- ===== CONTENT ===== -->
+<div id="content" class="content">
+
+    <div class="d-flex justify-content-between mb-4">
+        <div class="page-title">Quản lý bệnh nhân</div>
+
+        <a href="add_patient.html" class="btn btn-primary">
+            <i class="bi bi-plus-circle"></i> Thêm bệnh nhân
+        </a>
+    </div>
+
+    <!-- Search box -->
+    <div class="card p-3 mb-4">
+        <div class="row g-3">
+            <div class="col-md-4">
+                <input class="form-control" placeholder="Tìm theo tên bệnh nhân...">
+            </div>
+            <div class="col-md-3">
+                <select class="form-select">
+                    <option>Giới tính</option>
+                    <option>Nam</option>
+                    <option>Nữ</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <select class="form-select">
+                    <option>Trạng thái</option>
+                    <option>Đang điều trị</option>
+                    <option>Đã xuất viện</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <button class="btn btn-dark w-100">Tìm kiếm</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Table -->
+    <div class="card p-3">
+        <table class="table table-hover align-middle">
+            <thead>
+                <tr>
+                    <th>Mã BN</th>
+                    <th>Họ tên</th>
+                    <th>Giới tính</th>
+                    <th>Ngày sinh</th>
+                    <th>Số điện thoại</th>
+                    <th>Địa chỉ</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>BN001</td>
+                    <td>Nguyễn Văn A</td>
+                    <td>Nam</td>
+                    <td>12/03/1990</td>
+                    <td>0912345678</td>
+                    <td>Hà Nội</td>
+                    <td>
+                        <a href="view_patient.html" class="btn btn-info btn-sm text-white">Xem</a>
+                        <a href="edit_patient.html" class="btn btn-warning btn-sm">Sửa</a>
+                        <a href="#" class="btn btn-danger btn-sm">Xóa</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    // Toggle Sidebar
+    document.getElementById("toggleSidebar").onclick = function() {
+        document.getElementById("sidebar").classList.toggle("collapsed");
+        document.getElementById("topbar").classList.toggle("collapsed");
+        document.getElementById("content").classList.toggle("collapsed");
+    };
+</script>
+
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="assets/css/st.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+        <h2 class="sidebar-logo">EMR SYSTEM</h2>
+
+        <a href="dashboard.html"><i class="fa fa-gauge"></i> Dashboard</a>
+        <a href="patients.html"><i class="fa fa-users"></i> Bệnh nhân</a>
+        <a href="appointments.html"><i class="fa fa-calendar-check"></i> Lịch hẹn</a>
+        <a href="records.html"><i class="fa fa-folder-open"></i> Hồ sơ bệnh án</a>
+        <a class="active" href="lab_test.html"><i class="fa-solid fa-flask"></i> Xét nghiệm</a>
+        <a href="prescriptions.html"><i class="fa fa-file-medical"></i> Đơn thuốc</a>
+        <a href="statistics.html"><i class="fa fa-chart-line"></i> Thống kê</a>
+        <a href="users.html"><i class="fa fa-user-cog"></i> Quản lý người dùng</a>
+    </div>
+
+<!-- MAIN CONTENT -->
+<div class="main-content" id="main">
+    
+    <!-- TOPBAR -->
+    <div class="topbar">
+        <div class="toggle-btn" onclick="toggleSidebar()">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <div class="topbar-user" onclick="toggleDropdown()">
+            <img src="assets/img/user.jpg" alt="">
+            <span>Admin</span>
+        </div>
+
+        <ul class="dropdown-menu" id="dropdown">
+            <li><a href="#">Thông tin cá nhân</a></li>
+            <li><a href="#">Đăng xuất</a></li>
+        </ul>
+    </div>
+
+    <!-- CONTENT WRAPPER -->
+    <div class="content-header">
+    <h2 class="page-title">➕ Thêm Đơn Thuốc</h2>
+</div>
+
+<div class="card">
+
+    <!-- THÔNG TIN CHUNG -->
+    <h3 class="section-title">Thông tin chung</h3>
+
+    <form>
+
+        <div class="info-grid">
+            <div>
+                <label for="patient">Bệnh nhân</label>
+                <select id="patient">
+                    <option>Nguyễn Văn A</option>
+                    <option>Trần Thị B</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="doctor">Bác sĩ kê</label>
+                <select id="doctor">
+                    <option>BS. Trần Minh</option>
+                    <option>BS. Lê Hoàng</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="date">Ngày kê</label>
+                <input type="date" id="date" value="2025-01-12">
+            </div>
+
+            <div>
+                <label for="status">Trạng thái</label>
+                <select id="status">
+                    <option value="1">Đã cấp</option>
+                    <option value="0">Chưa cấp</option>
+                </select>
+            </div>
+        </div>
+
+        <hr style="margin: 25px 0;">
+
+        <!-- DANH SÁCH THUỐC -->
+        <h3 class="section-title">Danh sách thuốc</h3>
+
+        <table class="table" id="drugTable">
+            <thead>
+                <tr>
+                    <th>Tên thuốc</th>
+                    <th>Liều dùng</th>
+                    <th>Lần/ngày</th>
+                    <th>Số lượng</th>
+                    <th>Ghi chú</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td><input type="text" placeholder="Tên thuốc"></td>
+                    <td><input type="text" placeholder="Ví dụ: 1 viên"></td>
+                    <td><input type="number" min="1" value="1"></td>
+                    <td><input type="number" min="1" value="1"></td>
+                    <td><input type="text" placeholder="Tùy chọn"></td>
+                    <td>
+                        <button type="button" class="btn-danger" onclick="removeRow(this)">X</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button type="button" class="btn-primary" onclick="addDrugRow()" style="margin-top: 15px;">
+            + Thêm dòng thuốc
+        </button>
+
+        <hr style="margin: 25px 0;">
+
+        <!-- GHI CHÚ -->
+        <h3 class="section-title">Ghi chú</h3>
+
+        <textarea rows="3" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ccc;">
+        </textarea>
+
+        <div style="margin-top: 25px;">
+            <button type="submit" class="btn-primary">Lưu đơn thuốc</button>
+        </div>
+    </form>
+</div>
+
+<script>
+function addDrugRow() {
+    const table = document.querySelector("#drugTable tbody");
+    const row = document.createElement("tr");
+
+    row.innerHTML = `
+        <td><input type="text" placeholder="Tên thuốc"></td>
+        <td><input type="text" placeholder="Ví dụ: 1 viên"></td>
+        <td><input type="number" min="1" value="1"></td>
+        <td><input type="number" min="1" value="1"></td>
+        <td><input type="text" placeholder="Tùy chọn"></td>
+        <td><button type="button" class="btn-danger" onclick="removeRow(this)">X</button></td>
+    `;
+
+    table.appendChild(row);
+}
+
+function removeRow(button) {
+    button.closest("tr").remove();
+}
+</script>
+
+
+<script>
+function toggleSidebar() {
+    document.getElementById("sidebar").classList.toggle("active");
+    document.getElementById("main").classList.toggle("active");
+}
+
+function toggleDropdown() {
+    document.getElementById("dropdown").classList.toggle("show");
+}
+</script>
+
+</body>
+</html>

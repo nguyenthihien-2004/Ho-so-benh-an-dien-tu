@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="assets/css/st.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+        <h2 class="sidebar-logo">EMR SYSTEM</h2>
+
+        <a href="dashboard.html"><i class="fa fa-gauge"></i> Dashboard</a>
+        <a href="patients.html"><i class="fa fa-users"></i> Bệnh nhân</a>
+        <a class="active" href="appointments.html"><i class="fa fa-calendar-check"></i> Lịch hẹn</a>
+        <a href="records.html"><i class="fa fa-folder-open"></i> Hồ sơ bệnh án</a>
+        <a href="lab_test.html"><i class="fa-solid fa-flask"></i> Xét nghiệm</a>
+        <a href="prescriptions.html"><i class="fa fa-file-medical"></i> Đơn thuốc</a>
+        <a href="statistics.html"><i class="fa fa-chart-line"></i> Thống kê</a>
+        <a href="users.html"><i class="fa fa-user-cog"></i> Quản lý người dùng</a>
+    </div>
+
+<!-- MAIN CONTENT -->
+<div class="main-content" id="main">
+    
+    <!-- TOPBAR -->
+    <div class="topbar">
+        <div class="toggle-btn" onclick="toggleSidebar()">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <div class="topbar-user" onclick="toggleDropdown()">
+            <img src="assets/img/user.jpg" alt="">
+            <span>Admin</span>
+        </div>
+
+        <ul class="dropdown-menu" id="dropdown">
+            <li><a href="#">Thông tin cá nhân</a></li>
+            <li><a href="#">Đăng xuất</a></li>
+        </ul>
+    </div>
+
+    <!-- CONTENT WRAPPER -->
+    <h2 class="page-title">📅 Chi Tiết Lịch Hẹn</h2>
+
+<div class="form-card">
+
+    <div class="form-row">
+        <div class="form-group">
+            <label>Bệnh nhân</label>
+            <input type="text" value="Nguyễn Văn A" disabled>
+        </div>
+
+        <div class="form-group">
+            <label>Bác sĩ phụ trách</label>
+            <input type="text" value="BS. Trần Minh" disabled>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group">
+            <label>Ngày hẹn</label>
+            <input type="date" value="2025-01-22" disabled>
+        </div>
+
+        <div class="form-group">
+            <label>Giờ hẹn</label>
+            <input type="time" value="09:30" disabled>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Phòng khám</label>
+        <input type="text" value="Phòng 204A" disabled>
+    </div>
+
+    <div class="form-group">
+        <label>Lý do khám</label>
+        <textarea rows="4" disabled>Khám tổng quát định kỳ</textarea>
+    </div>
+
+    <div class="form-group">
+        <label>Ghi chú thêm</label>
+        <textarea rows="3" disabled>Bệnh nhân yêu cầu khám sớm.</textarea>
+    </div>
+
+    <div class="form-btns">
+        <a href="appointments_edit.html" class="btn-submit">Sửa lịch hẹn</a>
+        <a href="appointments.html" class="btn-cancel">Quay lại</a>
+    </div>
+
+</div>
+
+
+<script>
+function toggleSidebar() {
+    document.getElementById("sidebar").classList.toggle("active");
+    document.getElementById("main").classList.toggle("active");
+}
+
+function toggleDropdown() {
+    document.getElementById("dropdown").classList.toggle("show");
+}
+</script>
+
+</body>
+</html>

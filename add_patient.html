@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thêm bệnh nhân</title>
+    <link rel="stylesheet" href="assets/css/st.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .content-wrapper {
+            padding: 25px;
+        }
+
+        .page-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+
+        .form-section {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+        }
+
+        label {
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-logo">EMR SYSTEM</div>
+
+        <a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a>
+        <a href="patients.html" class="active"><i class="bi bi-people"></i> Bệnh nhân</a>
+        <a href="appointments.html"><i class="bi bi-calendar2-check"></i> Lịch hẹn</a>
+        <a href="records.html"><i class="bi bi-folder2-open"></i> Hồ sơ bệnh án</a>
+        <a href="lab_test.html"><i class="bi bi-folder2-open"></i> Xét nghiệm</a>
+        <a href="prescriptions.html"><i class="bi bi-capsule"></i> Đơn thuốc</a>
+        <a href="statistics.html"><i class="bi bi-bar-chart"></i> Thống kê</a>
+        <a href="users.html"><i class="bi bi-person-gear"></i> Quản lý người dùng</a>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content" id="main-content">
+
+        <!-- TOPBAR -->
+        <div class="topbar">
+            <div class="toggle-btn" onclick="toggleSidebar()">☰</div>
+
+            <div class="topbar-user" onclick="toggleUserMenu()">
+                <img src="assets/img/user.png" alt="">
+                <span>Admin</span>
+                <i class="bi bi-caret-down-fill"></i>
+            </div>
+
+            <ul class="dropdown-menu" id="dropdown">
+                <li><a href="#">Thông tin tài khoản</a></li>
+                <li><a href="login.html">Đăng xuất</a></li>
+            </ul>
+        </div>
+
+        <!-- CONTENT -->
+        <div class="content-wrapper">
+            <div class="page-title">Thêm bệnh nhân</div>
+
+            <form>
+                <div class="form-section">
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label>Mã bệnh nhân</label>
+                            <input type="text" class="form-control" placeholder="VD: BN123">
+                        </div>
+                        <div class="col-md-4">
+                            <label>Họ tên</label>
+                            <input type="text" class="form-control" placeholder="Nhập họ tên">
+                        </div>
+                        <div class="col-md-4">
+                            <label>Ngày sinh</label>
+                            <input type="date" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label>Giới tính</label>
+                            <select class="form-control">
+                                <option>Nam</option>
+                                <option>Nữ</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label>Số điện thoại</label>
+                            <input type="text" class="form-control" placeholder="Nhập số điện thoại">
+                        </div>
+                        <div class="col-md-4">
+                            <label>Địa chỉ</label>
+                            <input type="text" class="form-control" placeholder="Nhập địa chỉ">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Y TẾ -->
+                <div class="form-section">
+                    <h5 class="mb-3">Thông tin y tế</h5>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label>Tiền sử bệnh</label>
+                            <textarea class="form-control" rows="4" placeholder="Nhập tiền sử bệnh"></textarea>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Dị ứng</label>
+                            <textarea class="form-control" rows="4" placeholder="Nhập dị ứng (nếu có)"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-end gap-3">
+                    <a href="patients.html" class="btn btn-secondary px-4">Hủy</a>
+                    <button class="btn btn-primary px-4">Thêm bệnh nhân</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            document.getElementById("sidebar").classList.toggle("active");
+            document.getElementById("main-content").classList.toggle("active");
+        }
+
+        function toggleUserMenu() {
+            document.getElementById("dropdown").classList.toggle("show");
+        }
+    </script>
+
+</body>
+</html>

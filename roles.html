@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="assets/css/st.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+        <h2 class="sidebar-logo">EMR SYSTEM</h2>
+
+        <a href="dashboard.html"><i class="fa fa-gauge"></i> Dashboard</a>
+        <a href="patients.html"><i class="fa fa-users"></i> Bệnh nhân</a>
+        <a href="appointments.html"><i class="fa fa-calendar-check"></i> Lịch hẹn</a>
+        <a href="records.html"><i class="fa fa-folder-open"></i> Hồ sơ bệnh án</a>
+        <a href="lab__test.html"><i class="fa-solid fa-flask"></i> Xét nghiệm</a>
+        <a href="prescriptions.html"><i class="fa fa-file-medical"></i> Đơn thuốc</a>
+        <a href="statistics.html"><i class="fa fa-chart-line"></i> Thống kê</a>
+        <a class="active" href="users.html"><i class="fa fa-user-cog"></i> Quản lý người dùng</a>
+    </div>
+
+<!-- MAIN CONTENT -->
+<div class="main-content" id="main">
+    
+    <!-- TOPBAR -->
+    <div class="topbar">
+        <div class="toggle-btn" onclick="toggleSidebar()">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <div class="topbar-user" onclick="toggleDropdown()">
+            <img src="assets/img/user.jpg" alt="">
+            <span>Admin</span>
+        </div>
+
+        <ul class="dropdown-menu" id="dropdown">
+            <li><a href="#">Thông tin cá nhân</a></li>
+            <li><a href="#">Đăng xuất</a></li>
+        </ul>
+    </div>
+
+    <!-- CONTENT WRAPPER -->
+    <div class="content">
+
+    <h2 class="page-title">Phân Quyền Người Dùng</h2>
+
+    <!-- THÔNG TIN NGƯỜI DÙNG -->
+    <div class="card mb-20">
+        <h4 class="card-title">Thông tin tài khoản</h4>
+
+        <div class="info-grid">
+            <div><strong>Họ tên:</strong> Nguyễn Văn A</div>
+            <div><strong>Email:</strong> nguyenvana@gmail.com</div>
+            <div><strong>Vai trò hiện tại:</strong> Bác sĩ</div>
+            <div><strong>Trạng thái:</strong> Hoạt động</div>
+        </div>
+    </div>
+
+    <!-- PHÂN QUYỀN -->
+    <div class="card">
+        <h4 class="card-title">Danh sách quyền</h4>
+
+        <form>
+            <table class="permission-table">
+                <thead>
+                    <tr>
+                        <th>Chức năng</th>
+                        <th>Xem</th>
+                        <th>Thêm</th>
+                        <th>Sửa</th>
+                        <th>Xóa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Quản lý bệnh nhân</td>
+                        <td><input type="checkbox" checked></td>
+                        <td><input type="checkbox" checked></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>Hồ sơ bệnh án</td>
+                        <td><input type="checkbox" checked></td>
+                        <td><input type="checkbox" checked></td>
+                        <td><input type="checkbox" checked></td>
+                        <td><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>Xét nghiệm</td>
+                        <td><input type="checkbox" checked></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>Đơn thuốc</td>
+                        <td><input type="checkbox" checked></td>
+                        <td><input type="checkbox" checked></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>Quản lý người dùng</td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="form-actions">
+                <button class="btn btn-primary">Lưu phân quyền</button>
+                <a href="users.html" class="btn btn-secondary">Quay lại</a>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+
+<script>
+function toggleSidebar() {
+    document.getElementById("sidebar").classList.toggle("active");
+    document.getElementById("main").classList.toggle("active");
+}
+
+function toggleDropdown() {
+    document.getElementById("dropdown").classList.toggle("show");
+}
+</script>
+
+</body>
+</html>

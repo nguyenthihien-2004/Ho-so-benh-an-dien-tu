@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đặt lại mật khẩu</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="auth-background">
+        <div class="auth-container">
+            <h2 class="auth-title">Đặt lại mật khẩu</h2>
+
+            <form action="update_password.php" method="POST">
+                <input type="password" class="auth-input" name="password" placeholder="Nhập mật khẩu mới" required>
+
+                <input type="password" class="auth-input" name="confirm_password" placeholder="Xác nhận mật khẩu" required>
+
+                <a href="login.html" type="submit" class="auth-button">Cập nhật mật khẩu</a>
+            </form>
+            
+            <p class="auth-link">Quay lại? <a href="login.html">Đăng nhập</a></p>
+        </div>
+    </div>
+</body>
+</html>

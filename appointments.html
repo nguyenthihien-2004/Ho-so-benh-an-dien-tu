@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="assets/css/st.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+        <h2 class="sidebar-logo">EMR SYSTEM</h2>
+
+        <a href="dashboard.html"><i class="fa fa-gauge"></i> Dashboard</a>
+        <a href="patients.html"><i class="fa fa-users"></i> Bệnh nhân</a>
+        <a class="active" href="appointments.html"><i class="fa fa-calendar-check"></i> Lịch hẹn</a>
+        <a href="records.html"><i class="fa fa-folder-open"></i> Hồ sơ bệnh án</a>
+        <a href="lab_test.html"><i class="fa-solid fa-flask"></i> Xét nghiệm</a>
+        <a href="prescriptions.html"><i class="fa fa-file-medical"></i> Đơn thuốc</a>
+        <a href="statistics.html"><i class="fa fa-chart-line"></i> Thống kê</a>
+        <a href="users.html"><i class="fa fa-user-cog"></i> Quản lý người dùng</a>
+    </div>
+
+<!-- MAIN CONTENT -->
+<div class="main-content" id="main">
+    
+    <!-- TOPBAR -->
+    <div class="topbar">
+        <div class="toggle-btn" onclick="toggleSidebar()">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <div class="topbar-user" onclick="toggleDropdown()">
+            <img src="assets/img/user.jpg" alt="">
+            <span>Admin</span>
+        </div>
+
+        <ul class="dropdown-menu" id="dropdown">
+            <li><a href="#">Thông tin cá nhân</a></li>
+            <li><a href="#">Đăng xuất</a></li>
+        </ul>
+    </div>
+
+    <!-- CONTENT WRAPPER -->
+    <div class="content-header">
+    <h2>📅 Quản Lý Lịch Hẹn</h2>
+</div>
+
+<div class="content-card">
+
+    <!-- Bộ lọc + Tìm kiếm -->
+    <div class="filter-bar">
+        <input type="text" placeholder="🔍 Tìm theo tên bệnh nhân, số điện thoại..." class="input-search">
+
+        <input type="date" class="input-date">
+
+        <select class="input-select">
+            <option value="">Tất cả trạng thái</option>
+            <option>Chưa khám</option>
+            <option>Đang khám</option>
+            <option>Đã hoàn thành</option>
+            <option>Đã hủy</option>
+        </select>
+
+        <a href="add_app.html" class="btn-add">+ Thêm lịch hẹn</a>
+    </div>
+
+    <!-- Bảng lịch hẹn -->
+    <table class="table-custom">
+        <thead>
+            <tr>
+                <th>Mã</th>
+                <th>Bệnh nhân</th>
+                <th>Ngày hẹn</th>
+                <th>Giờ hẹn</th>
+                <th>Bác sĩ</th>
+                <th>Trạng thái</th>
+                <th style="width: 110px;">Hành động</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>#AP001</td>
+                <td><b>Trần Minh Hoàng</b><br><small>0988 888 888</small></td>
+                <td>25/12/2025</td>
+                <td>14:30</td>
+                <td>BS. Nguyễn Văn A</td>
+                <td><span class="tag pending">Chưa khám</span></td>
+                <td>
+                    <a href="view_app.html" class="btn-view">Xem</a>
+                    <a href="edit_app.html" class="btn-edit">Sửa</a>
+                </td>
+            </tr>
+
+            <tr>
+                <td>#AP002</td>
+                <td><b>Nguyễn Thị Lan</b><br><small>0912 555 444</small></td>
+                <td>26/12/2025</td>
+                <td>09:00</td>
+                <td>BS. Trần Quốc Bảo</td>
+                <td><span class="tag success">Đã hoàn thành</span></td>
+                <td>
+                    <a href="view_app.html" class="btn-view">Xem</a>
+                    <a href="edit_app.html" class="btn-edit">Sửa</a>
+                </td>
+            </tr>
+
+            <tr>
+                <td>#AP003</td>
+                <td><b>Phạm Hữu Long</b><br><small>0903 111 222</small></td>
+                <td>27/12/2025</td>
+                <td>15:00</td>
+                <td>BS. Lê Hồng Nhung</td>
+                <td><span class="tag cancel">Đã hủy</span></td>
+                <td>
+                    <a href="view_app.html" class="btn-view">Xem</a>
+                    <a href="edit_app.html" class="btn-edit">Sửa</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<style>
+/* HEADER */
+.content-header h2 {
+    margin-bottom: 15px;
+    color: #1d2b44;
+}
+
+/* CARD WRAPPER */
+.content-card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+}
+
+/* FILTER BAR */
+.filter-bar {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.input-search,
+.input-date,
+.input-select {
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+.input-search {
+    flex: 1;
+}
+
+/* BUTTON ADD */
+.btn-add {
+    background: #1d2b44;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+/* TABLE */
+.table-custom {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-custom th {
+    background: #1d2b44;
+    color: white;
+    padding: 12px;
+    text-align: left;
+    font-size: 15px;
+}
+
+.table-custom td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    font-size: 15px;
+}
+
+/* TAG STATUS */
+.tag {
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-size: 13px;
+    color: white;
+}
+
+.tag.pending { background: #f0ad4e; }
+.tag.success { background: #28a745; }
+.tag.cancel  { background: #dc3545; }
+
+/* ACTION BUTTONS */
+.btn-view, .btn-edit {
+    padding: 6px 10px;
+    font-size: 13px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+}
+
+.btn-view { background: #0d6efd; }
+.btn-edit { background: #ffc107; color: #333; }
+</style>
+
+
+<script>
+function toggleSidebar() {
+    document.getElementById("sidebar").classList.toggle("active");
+    document.getElementById("main").classList.toggle("active");
+}
+
+function toggleDropdown() {
+    document.getElementById("dropdown").classList.toggle("show");
+}
+</script>
+
+</body>
+</html>

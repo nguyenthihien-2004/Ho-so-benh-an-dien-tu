@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sửa phân quyền</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f5f7fa;
+        }
+        .sidebar {
+            width: 230px;
+            height: 100vh;
+            background: linear-gradient(#496daf, #7597d8);
+            color: white;
+            padding-top: 20px;
+            position: fixed;
+        }
+        .sidebar a {
+            color: white;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            font-size: 17px;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+        .sidebar a:hover,
+        .sidebar a.active {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 6px;
+        }
+        .sidebar i {
+            margin-right: 12px;
+        }
+        .content {
+            margin-left: 250px;
+            padding: 30px;
+        }
+        .header {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .header img {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            margin-left: 10px;
+        }
+        .permission-group {
+            border: 1px solid #e1e1e1;
+            padding: 20px;
+            border-radius: 10px;
+            background: white;
+            margin-bottom: 25px;
+        }
+        .permission-group h5 {
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+    <h3 class="text-center mb-4">Dashboard</h3>
+
+    <a href="#"><i class="bi bi-speedometer2"></i> Dashboard</a>
+    <a href="#"><i class="bi bi-people"></i> Bệnh nhân</a>
+    <a href="#"><i class="bi bi-file-medical"></i> Hồ sơ bệnh án</a>
+    <a href="#"><i class="bi bi-calendar-check"></i> Lịch hẹn</a>
+    <a href="#"><i class="bi bi-test-tube"></i> Xét nghiệm</a>
+    <a href="#"><i class="bi bi-capsule-pill"></i> Đơn thuốc</a>
+    <a href="#"><i class="bi bi-bar-chart"></i> Thống kê</a>
+    <a href="role-management.html" class="active"><i class="bi bi-person-gear"></i> Quản trị người dùng</a>
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+
+    <!-- HEADER -->
+    <div class="header">
+        <i class="bi bi-bell fs-4 me-3"></i>
+        <span>user</span>
+        <img src="https://i.pravatar.cc/100?img=12">
+    </div>
+
+    <h2 class="mb-3">Sửa phân quyền tài khoản</h2>
+
+    <div class="card p-4 shadow-sm">
+
+        <!-- THÔNG TIN TÀI KHOẢN -->
+        <div class="mb-4">
+            <h5>Thông tin tài khoản</h5>
+            <div class="row">
+                <div class="col-md-4">
+                    <label class="form-label fw-bold">Tên đăng nhập</label>
+                    <input type="text" class="form-control" value="bs002" readonly>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label fw-bold">Họ và tên</label>
+                    <input type="text" class="form-control" value="Trần Thị C" readonly>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label fw-bold">Vai trò</label>
+                    <select class="form-select">
+                        <option>Bác sĩ</option>
+                        <option>Nhân viên y tế</option>
+                        <option>Quản trị viên</option>
+                        <option>Bệnh nhân</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- NHÓM QUYỀN -->
+        <div class="permission-group">
+            <h5><i class="bi bi-person-vcard me-2"></i>Quyền bệnh nhân</h5>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" checked>
+                <label class="form-check-label">Xem danh sách bệnh nhân</label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" checked>
+                <label class="form-check-label">Xem chi tiết bệnh nhân</label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox">
+                <label class="form-check-label">Thêm bệnh nhân</label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox">
+                <label class="form-check-label">Sửa bệnh nhân</label>
+            </div>
+        </div>
+
+        <div class="permission-group">
+            <h5><i class="bi bi-file-earmark-medical me-2"></i>Quyền hồ sơ bệnh án</h5>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" checked>
+                <label class="form-check-label">Xem hồ sơ bệnh án</label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox">
+                <label class="form-check-label">Thêm hồ sơ bệnh án</label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox">
+                <label class="form-check-label">Sửa hồ sơ bệnh án</label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox">
+                <label class="form-check-label">Xóa hồ sơ bệnh án</label>
+            </div>
+        </div>
+
+        <div class="permission-group">
+            <h5><i class="bi bi-calendar-check me-2"></i>Quyền lịch hẹn</h5>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" checked>
+                <label class="form-check-label">Xem lịch hẹn</label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox">
+                <label class="form-check-label">Tạo lịch hẹn</label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox">
+                <label class="form-check-label">Cập nhật lịch hẹn</label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox">
+                <label class="form-check-label">Hủy lịch hẹn</label>
+            </div>
+        </div>
+
+        <!-- NÚT -->
+        <div class="text-end mt-3">
+            <a href="role-management.html" class="btn btn-secondary">Hủy</a>
+            <button class="btn btn-primary">Lưu thay đổi</button>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

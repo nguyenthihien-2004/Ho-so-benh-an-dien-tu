@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="assets/css/st.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+        <h2 class="sidebar-logo">EMR SYSTEM</h2>
+
+        <a href="dashboard.html"><i class="fa fa-gauge"></i> Dashboard</a>
+        <a href="patients.html"><i class="fa fa-users"></i> Bệnh nhân</a>
+        <a href="appointments.html"><i class="fa fa-calendar-check"></i> Lịch hẹn</a>
+        <a href="records.html"><i class="fa fa-folder-open"></i> Hồ sơ bệnh án</a>
+        <a class="active" href="lab_test.html"><i class="fa-solid fa-flask"></i> Xét nghiệm</a>
+        <a href="prescriptions.html"><i class="fa fa-file-medical"></i> Đơn thuốc</a>
+        <a href="statistics.html"><i class="fa fa-chart-line"></i> Thống kê</a>
+        <a href="users.html"><i class="fa fa-user-cog"></i> Quản lý người dùng</a>
+    </div>
+
+<!-- MAIN CONTENT -->
+<div class="main-content" id="main">
+    
+    <!-- TOPBAR -->
+    <div class="topbar">
+        <div class="toggle-btn" onclick="toggleSidebar()">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <div class="topbar-user" onclick="toggleDropdown()">
+            <img src="assets/img/user.jpg" alt="">
+            <span>Admin</span>
+        </div>
+
+        <ul class="dropdown-menu" id="dropdown">
+            <li><a href="#">Thông tin cá nhân</a></li>
+            <li><a href="#">Đăng xuất</a></li>
+        </ul>
+    </div>
+
+    <!-- CONTENT WRAPPER -->
+    <div class="content-wrapper" style="padding: 25px;">
+
+    <div style="
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        max-width: 900px;
+    ">
+        <h2 style="margin-bottom: 15px;">✏ Sửa Xét Nghiệm</h2>
+
+        <a href="tests.html" style="text-decoration:none; color:#0d6efd;">
+            ← Quay lại danh sách xét nghiệm
+        </a>
+
+        <hr style="margin: 20px 0;">
+
+        <!-- FORM SỬA XÉT NGHIỆM -->
+        <form>
+
+            <!-- Thông tin chung -->
+            <h3 style="margin-bottom: 15px; font-size: 20px;">Thông Tin Xét Nghiệm</h3>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+
+                <div>
+                    <label>Mã xét nghiệm</label>
+                    <input type="text" class="form-control" value="XN001" readonly>
+                </div>
+
+                <div>
+                    <label>Ngày thực hiện</label>
+                    <input type="date" class="form-control" value="2025-01-10">
+                </div>
+
+                <div>
+                    <label>Bệnh nhân</label>
+                    <select class="form-control">
+                        <option>Nguyễn Văn A</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>Bác sĩ phụ trách</label>
+                    <select class="form-control">
+                        <option>BS. Trần Minh</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>Loại xét nghiệm</label>
+                    <select class="form-control">
+                        <option>Xét nghiệm máu</option>
+                        <option>Nước tiểu</option>
+                        <option>Điện giải đồ</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>Trạng thái</label>
+                    <select class="form-control">
+                        <option>Hoàn tất</option>
+                        <option>Đang xử lý</option>
+                        <option>Đã hủy</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <hr style="margin: 20px 0;">
+
+            <!-- Kết quả xét nghiệm -->
+            <h3 style="margin-bottom: 15px; font-size: 20px;">Kết Quả Xét Nghiệm</h3>
+
+            <table style="width: 100%; border-collapse: collapse;">
+                <thead>
+                    <tr style="background: #f1f3f5;">
+                        <th style="padding: 12px; border: 1px solid #ddd;">Chỉ số</th>
+                        <th style="padding: 12px; border: 1px solid #ddd;">Kết quả</th>
+                        <th style="padding: 12px; border: 1px solid #ddd;">Đơn vị</th>
+                        <th style="padding: 12px; border: 1px solid #ddd;">Giới hạn</th>
+                        <th style="padding: 12px; border: 1px solid #ddd;">Đánh giá</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td style="padding: 12px; border: 1px solid #ddd;">Hemoglobin (Hb)</td>
+                        <td style="padding: 12px; border: 1px solid #ddd;">
+                            <input type="text" class="form-control" value="13.5">
+                        </td>
+                        <td style="padding: 12px; border: 1px solid #ddd;">g/dL</td>
+                        <td style="padding: 12px; border: 1px solid #ddd;">12–17</td>
+                        <td style="padding: 12px; border: 1px solid #ddd; color: green;">Bình thường</td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding: 12px; border: 1px solid #ddd;">WBC</td>
+                        <td style="padding: 12px; border: 1px solid #ddd;">
+                            <input type="text" class="form-control" value="8.1">
+                        </td>
+                        <td style="padding: 12px; border: 1px solid #ddd;">10⁹/L</td>
+                        <td style="padding: 12px; border: 1px solid #ddd;">4.0–11.0</td>
+                        <td style="padding: 12px; border: 1px solid #ddd; color: green;">Bình thường</td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding: 12px; border: 1px solid #ddd;">RBC</td>
+                        <td style="padding: 12px; border: 1px solid #ddd;">
+                            <input type="text" class="form-control" value="4.2">
+                        </td>
+                        <td style="padding: 12px; border: 1px solid #ddd;">10¹²/L</td>
+                        <td style="padding: 12px; border: 1px solid #ddd;">4.0–5.5</td>
+                        <td style="padding: 12px; border: 1px solid #ddd; color: green;">Bình thường</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div style="margin-top: 25px; text-align: right;">
+                <button type="submit"
+                    style="padding: 10px 18px; background:#0d6efd; color:white; border:none; border-radius:6px; cursor:pointer;">
+                    💾 Lưu thay đổi
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+
+<script>
+function toggleSidebar() {
+    document.getElementById("sidebar").classList.toggle("active");
+    document.getElementById("main").classList.toggle("active");
+}
+
+function toggleDropdown() {
+    document.getElementById("dropdown").classList.toggle("show");
+}
+</script>
+
+</body>
+</html>

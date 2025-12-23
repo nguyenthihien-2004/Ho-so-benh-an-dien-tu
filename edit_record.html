@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sửa hồ sơ bệnh án</title>
+    <link rel="stylesheet" href="assets/css/st.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+        <h2 class="sidebar-logo">EMR SYSTEM</h2>
+
+        <a href="dashboard.html"><i class="fa fa-gauge"></i> Dashboard</a>
+        <a href="patients.html"><i class="fa fa-users"></i> Bệnh nhân</a>
+        <a href="appointments.html"><i class="fa fa-calendar-check"></i> Lịch hẹn</a>
+        <a class="active" href="records.html"><i class="fa fa-folder-open"></i> Hồ sơ bệnh án</a>
+        <a href="lab_test.html"><i class="fa-solid fa-flask"></i> Xét nghiệm</a>
+        <a href="prescriptions.html"><i class="fa fa-file-medical"></i> Đơn thuốc</a>
+        <a href="statistics.html"><i class="fa fa-chart-line"></i> Thống kê</a>
+        <a href="users.html"><i class="fa fa-user-cog"></i> Quản lý người dùng</a>
+    </div>
+
+<!-- MAIN CONTENT -->
+<div class="main-content" id="main">
+    
+    <!-- TOPBAR -->
+    <div class="topbar">
+        <div class="toggle-btn" onclick="toggleSidebar()">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <div class="topbar-user" onclick="toggleDropdown()">
+            <img src="assets/img/user.jpg" alt="">
+            <span>Admin</span>
+        </div>
+
+        <ul class="dropdown-menu" id="dropdown">
+            <li><a href="#">Thông tin cá nhân</a></li>
+            <li><a href="#">Đăng xuất</a></li>
+        </ul>
+    </div>
+
+    <!-- CONTENT WRAPPER -->
+   <div class="content-wrapper" style="padding: 25px;">
+
+    <div style="
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        max-width: 900px;
+        margin: auto;
+    ">
+        <h2 style="margin-bottom: 20px;">✏️ Sửa Hồ Sơ Bệnh Án</h2>
+
+        <form action="#" method="post">
+
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label>Mã hồ sơ</label>
+                <input type="text" class="form-control" value="HS001" readonly
+                    style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; background: #e9ecef;">
+            </div>
+
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label>Bệnh nhân</label>
+                <select class="form-control"
+                    style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px;">
+                    <option selected>Nguyễn Văn A</option>
+                    <option>Trần Thị B</option>
+                    <option>Lê Văn C</option>
+                </select>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label>Ngày lập hồ sơ</label>
+                <input type="date" class="form-control" value="2025-01-10"
+                    style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px;">
+            </div>
+
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label>Triệu chứng</label>
+                <textarea class="form-control" rows="3"
+                    style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px;">Sốt nhẹ, đau đầu, ho khan.</textarea>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label>Chuẩn đoán</label>
+                <textarea class="form-control" rows="3"
+                    style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px;">Viêm đường hô hấp nhẹ.</textarea>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label>Phác đồ điều trị</label>
+                <textarea class="form-control" rows="3"
+                    style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px;">Uống thuốc hạ sốt, nghỉ ngơi 2–3 ngày.</textarea>
+            </div>
+
+            <div style="margin-top: 20px;">
+                <button type="submit" style="
+                    padding: 10px 18px;
+                    border: none;
+                    background: #0d6efd;
+                    color: white;
+                    border-radius: 6px;
+                    cursor: pointer;
+                ">Cập nhật hồ sơ</button>
+
+                <a href="medical_record_list.html" style="
+                    padding: 10px 18px;
+                    background: #6c757d;
+                    color: white;
+                    border-radius: 6px;
+                    text-decoration: none;
+                    margin-left: 10px;
+                ">Hủy</a>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+   
+
+<script>
+function toggleSidebar() {
+    document.getElementById("sidebar").classList.toggle("active");
+    document.getElementById("main").classList.toggle("active");
+}
+
+function toggleDropdown() {
+    document.getElementById("dropdown").classList.toggle("show");
+}
+</script>
+
+</body>
+</html>

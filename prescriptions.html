@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="assets/css/st.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+        <h2 class="sidebar-logo">EMR SYSTEM</h2>
+
+        <a href="dashboard.html"><i class="fa fa-gauge"></i> Dashboard</a>
+        <a href="patients.html"><i class="fa fa-users"></i> Bệnh nhân</a>
+        <a href="appointments.html"><i class="fa fa-calendar-check"></i> Lịch hẹn</a>
+        <a href="records.html"><i class="fa fa-folder-open"></i> Hồ sơ bệnh án</a>
+        <a href="lab_test.html"><i class="fa-solid fa-flask"></i> Xét nghiệm</a>
+        <a class="active" href="prescriptions.html"><i class="fa fa-file-medical"></i> Đơn thuốc</a>
+        <a href="statistics.html"><i class="fa fa-chart-line"></i> Thống kê</a>
+        <a href="users.html"><i class="fa fa-user-cog"></i> Quản lý người dùng</a>
+    </div>
+
+<!-- MAIN CONTENT -->
+<div class="main-content" id="main">
+    
+    <!-- TOPBAR -->
+    <div class="topbar">
+        <div class="toggle-btn" onclick="toggleSidebar()">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <div class="topbar-user" onclick="toggleDropdown()">
+            <img src="assets/img/user.jpg" alt="">
+            <span>Admin</span>
+        </div>
+
+        <ul class="dropdown-menu" id="dropdown">
+            <li><a href="#">Thông tin cá nhân</a></li>
+            <li><a href="#">Đăng xuất</a></li>
+        </ul>
+    </div>
+
+    <!-- CONTENT WRAPPER -->
+    <div class="content-header">
+    <h2 class="page-title">📄 Danh Sách Đơn Thuốc</h2>
+</div>
+
+<div class="card">
+
+    <!-- SEARCH + BUTTON -->
+    <div class="toolbar">
+        <input type="text" class="search-input" placeholder="Tìm đơn thuốc, bệnh nhân...">
+
+        <select class="filter-select">
+            <option>Tất cả</option>
+            <option>Đã cấp</option>
+            <option>Chưa cấp</option>
+        </select>
+
+        <a href="add_pre.html" class="btn-primary add-btn ">
+            <i class="bi bi-plus-circle"></i> Thêm đơn thuốc
+        </a>
+    </div>
+
+    <!-- TABLE -->
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Mã đơn</th>
+                <th>Bệnh nhân</th>
+                <th>Bác sĩ kê</th>
+                <th>Ngày cấp</th>
+                <th>Trạng thái</th>
+                <th style="width: 120px;">Thao tác</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>DT001</td>
+                <td>Nguyễn Văn A</td>
+                <td>BS. Trần Minh</td>
+                <td>12/01/2025</td>
+                <td><span class="status success">Đã cấp</span></td>
+                <td>
+                    <a href="view_pre.html" class="table-btn view">Xem</a>
+                    <a href="edit_pre.html" class="table-btn edit">Sửa</a>
+                </td>
+            </tr>
+
+            <tr>
+                <td>DT002</td>
+                <td>Trần Thị B</td>
+                <td>BS. Phạm Anh</td>
+                <td>10/01/2025</td>
+                <td><span class="status pending">Chưa cấp</span></td>
+                <td>
+                    <a href="view_pre.html" class="table-btn view">Xem</a>
+                    <a href="edit_pre.html" class="table-btn edit">Sửa</a>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+
+</div>
+
+
+<script>
+function toggleSidebar() {
+    document.getElementById("sidebar").classList.toggle("active");
+    document.getElementById("main").classList.toggle("active");
+}
+
+function toggleDropdown() {
+    document.getElementById("dropdown").classList.toggle("show");
+}
+</script>
+
+</body>
+</html>

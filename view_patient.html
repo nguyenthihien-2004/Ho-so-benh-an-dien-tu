@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xem chi tiết bệnh nhân</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/st.css"> <!-- CSS chung -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <h2 class="sidebar-logo">EMR SYSTEM</h2>
+
+        <a href="dashboard.html"><i class="fa fa-gauge"></i> Dashboard</a>
+        <a class="active" href="patients.html"><i class="fa fa-users"></i> Bệnh nhân</a>
+        <a href="appointments.html"><i class="fa fa-calendar-check"></i> Lịch hẹn</a>
+        <a href="records.html"><i class="fa fa-folder-open"></i> Hồ sơ bệnh án</a>
+        <a href="lab_test.html"><i class="fa-solid fa-flask"></i> Xét nghiệm</a>
+        <a href="prescriptions.html"><i class="fa fa-file-medical"></i> Đơn thuốc</a>
+        <a href="statistics.html"><i class="fa fa-chart-line"></i> Thống kê</a>
+        <a href="users.html"><i class="fa fa-user-cog"></i> Quản lý người dùng</a>
+    </div>
+
+    <!-- MAIN CONTENT WRAPPER -->
+    <div class="main-content">
+
+        <!-- TOPBAR -->
+        <div class="topbar">
+            <i class="fa fa-bars toggle-btn" onclick="toggleSidebar()"></i>
+
+            <div class="topbar-user">
+                <img src="assets/img/avatar.png" alt="user">
+                <span>Admin</span>
+                <i class="fa fa-chevron-down"></i>
+
+                <ul class="dropdown-menu">
+                    <li><a href="#">Thông tin cá nhân</a></li>
+                    <li><a href="#">Đổi mật khẩu</a></li>
+                    <li><a href="login.html">Đăng xuất</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- PAGE CONTENT -->
+        <div class="container-fluid px-4 mt-4">
+
+            <h3 class="fw-bold mb-4">Thông tin chi tiết bệnh nhân</h3>
+
+            <div class="card p-4 shadow-sm">
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <label class="fw-bold">Mã bệnh nhân</label>
+                        <p>BN001</p>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label class="fw-bold">Họ tên</label>
+                        <p>Nguyễn Văn B</p>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label class="fw-bold">Ngày sinh</label>
+                        <p>12/03/1985</p>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <label class="fw-bold">Giới tính</label>
+                        <p>Nam</p>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label class="fw-bold">Số điện thoại</label>
+                        <p>0912 345 678</p>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label class="fw-bold">Địa chỉ</label>
+                        <p>Hà Nội</p>
+                    </div>
+                </div>
+
+                <hr>
+
+                <h5 class="fw-bold mb-3">Thông tin y tế</h5>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="fw-bold">Tiền sử bệnh</label>
+                        <p>Không có</p>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="fw-bold">Dị ứng</label>
+                        <p>Không</p>
+                    </div>
+                </div>
+
+                <div class="text-end">
+                    <a href="patients.html" class="btn btn-secondary">Quay lại</a>
+                    <a href="patient-edit.html" class="btn btn-warning text-white">Sửa</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+function toggleSidebar() {
+    document.querySelector(".sidebar").classList.toggle("active");
+    document.querySelector(".main-content").classList.toggle("active");
+}
+
+// Dropdown user menu
+document.querySelector(".topbar-user").addEventListener("click", function () {
+    document.querySelector(".dropdown-menu").classList.toggle("show");
+});
+</script>
+
+</body>
+</html>
