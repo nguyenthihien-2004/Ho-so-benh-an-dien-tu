@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Báo cáo PDF</title>
+    <link rel="stylesheet" href="assets/css/st.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+        <h2 class="sidebar-logo">EMR SYSTEM</h2>
+
+        <a href="dashboard.html"><i class="fa fa-gauge"></i> Dashboard</a>
+        <a href="patients.html"><i class="fa fa-users"></i> Bệnh nhân</a>
+        <a href="appointments.html"><i class="fa fa-calendar-check"></i> Lịch hẹn</a>
+        <a href="records.html"><i class="fa fa-folder-open"></i> Hồ sơ bệnh án</a>
+        <a href="lab__test.html"><i class="fa-solid fa-flask"></i> Xét nghiệm</a>
+        <a href="prescriptions.html"><i class="fa fa-file-medical"></i> Đơn thuốc</a>
+        <a class="active" href="statistics.html"><i class="fa fa-chart-line"></i> Thống kê</a>
+        <a href="users.html"><i class="fa fa-user-cog"></i> Quản lý người dùng</a>
+    </div>
+
+<!-- MAIN CONTENT -->
+<div class="main-content" id="main">
+    
+    <!-- TOPBAR -->
+    <div class="topbar">
+        <div class="toggle-btn" onclick="toggleSidebar()">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <div class="topbar-user" onclick="toggleDropdown()">
+            <img src="assets/img/user.jpg" alt="">
+            <span>User</span>
+        </div>
+
+        <ul class="dropdown-menu" id="dropdown">
+            <li><a href="#">Thông tin cá nhân</a></li>
+            <li><a href="#">Đăng xuất</a></li>
+        </ul>
+    </div>
+
+    <!-- CONTENT WRAPPER -->
+    <div class="content">
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+        <h2 class="page-title">Báo Cáo & Xuất PDF</h2>
+    </div>
+
+    <!-- FILTER REPORT -->
+    <div class="card">
+        <h4 class="section-title">Chọn loại báo cáo</h4>
+
+        <div class="form-grid">
+            <div class="form-group">
+                <label>Loại báo cáo</label>
+                <select class="form-control">
+                    <option>Báo cáo bệnh nhân</option>
+                    <option>Báo cáo hồ sơ bệnh án</option>
+                    <option>Báo cáo lịch hẹn</option>
+                    <option>Báo cáo xét nghiệm</option>
+                    <option>Báo cáo đơn thuốc</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Từ ngày</label>
+                <input type="date" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label>Đến ngày</label>
+                <input type="date" class="form-control">
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <button class="btn btn-primary">
+                <i class="fas fa-search"></i> Xem báo cáo
+            </button>
+        </div>
+    </div>
+
+    <!-- REPORT PREVIEW -->
+    <div class="card">
+        <h4 class="section-title">Xem trước báo cáo</h4>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Tên bệnh nhân</th>
+                    <th>Ngày khám</th>
+                    <th>Bác sĩ</th>
+                    <th>Kết quả</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Nguyễn Văn A</td>
+                    <td>12/03/2025</td>
+                    <td>BS Trần Minh</td>
+                    <td>Ổn định</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Lê Thị B</td>
+                    <td>13/03/2025</td>
+                    <td>BS Nguyễn Hùng</td>
+                    <td>Theo dõi thêm</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- EXPORT -->
+    <div class="card export-box">
+        <h4 class="section-title">Xuất báo cáo</h4>
+
+        <div class="export-actions">
+            <button class="btn btn-danger">
+                <i class="fas fa-file-pdf"></i> Xuất PDF
+            </button>
+            <button class="btn btn-success">
+                <i class="fas fa-file-excel"></i> Xuất Excel
+            </button>
+        </div>
+    </div>
+
+</div>
+
+
+<script>
+function toggleSidebar() {
+    document.getElementById("sidebar").classList.toggle("active");
+    document.getElementById("main").classList.toggle("active");
+}
+
+function toggleDropdown() {
+    document.getElementById("dropdown").classList.toggle("show");
+}
+</script>
+
+</body>
+</html>

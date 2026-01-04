@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thống kê - báo cáo</title>
+    <link rel="stylesheet" href="assets/css/st.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+        <h2 class="sidebar-logo">EMR SYSTEM</h2>
+
+        <a href="dashboard.html"><i class="fa fa-gauge"></i> Dashboard</a>
+        <a href="patients.html"><i class="fa fa-users"></i> Bệnh nhân</a>
+        <a href="appointments.html"><i class="fa fa-calendar-check"></i> Lịch hẹn</a>
+        <a href="records.html"><i class="fa fa-folder-open"></i> Hồ sơ bệnh án</a>
+        <a href="lab_test.html"><i class="fa-solid fa-flask"></i> Xét nghiệm</a>
+        <a href="prescriptions.html"><i class="fa fa-file-medical"></i> Đơn thuốc</a>
+        <a class="active" href="statistics.html"><i class="fa fa-chart-line"></i> Thống kê</a>
+        <a href="users.html"><i class="fa fa-user-cog"></i> Quản lý người dùng</a>
+    </div>
+
+<!-- MAIN CONTENT -->
+<div class="main-content" id="main">
+    
+    <!-- TOPBAR -->
+    <div class="topbar">
+        <div class="toggle-btn" onclick="toggleSidebar()">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <div class="topbar-user" onclick="toggleDropdown()">
+            <img src="assets/img/user.jpg" alt="">
+            <span>user</span>
+        </div>
+
+        <ul class="dropdown-menu" id="dropdown">
+            <li><a href="#">Thông tin cá nhân</a></li>
+            <li><a href="#">Đăng xuất</a></li>
+        </ul>
+    </div>
+
+    <!-- CONTENT WRAPPER -->
+   <div class="content">
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+        <h2 class="page-title">Thống Kê – Báo Cáo</h2>
+        <div class="page-actions">
+            <select class="form-control">
+                <option>Hôm nay</option>
+                <option>7 ngày gần đây</option>
+                <option>Tháng này</option>
+                <option>Năm nay</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- SUMMARY CARDS -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <h3>1,245</h3>
+            <p>Bệnh nhân</p>
+        </div>
+        <div class="stat-card">
+            <h3>312</h3>
+            <p>Hồ sơ bệnh án</p>
+        </div>
+        <div class="stat-card">
+            <h3>186</h3>
+            <p>Lịch hẹn</p>
+        </div>
+        <div class="stat-card">
+            <h3>98</h3>
+            <p>Đơn thuốc</p>
+        </div>
+    </div>
+
+    <!-- CHARTS -->
+    <div class="chart-grid">
+
+    <div class="card">
+        <h4 class="section-title">Số bệnh nhân theo tháng</h4>
+        <canvas id="patientChart" height="120"></canvas>
+    </div>
+
+    <div class="card">
+        <h4 class="section-title">Số xét nghiệm thực hiện</h4>
+        <canvas id="testChart" height="120"></canvas>
+    </div>
+</div>
+
+    <!-- TABLE REPORT -->
+    <div class="card">
+        <h4 class="section-title">Thống kê lịch hẹn gần đây</h4>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Ngày</th>
+                    <th>Bệnh nhân</th>
+                    <th>Bác sĩ</th>
+                    <th>Trạng thái</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>12/03/2025</td>
+                    <td>Nguyễn Văn A</td>
+                    <td>BS Trần Minh</td>
+                    <td><span class="badge badge-success">Hoàn thành</span></td>
+                </tr>
+                <tr>
+                    <td>13/03/2025</td>
+                    <td>Lê Thị B</td>
+                    <td>BS Nguyễn Hùng</td>
+                    <td><span class="badge badge-warning">Chờ khám</span></td>
+                </tr>
+                <tr>
+                    <td>14/03/2025</td>
+                    <td>Phạm Văn C</td>
+                    <td>BS Trần Minh</td>
+                    <td><span class="badge badge-danger">Hủy</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+<script>
+function toggleSidebar() {
+    document.getElementById("sidebar").classList.toggle("active");
+    document.getElementById("main").classList.toggle("active");
+}
+
+function toggleDropdown() {
+    document.getElementById("dropdown").classList.toggle("show");
+}
+</script>
+
+</body>
+</html>
+<script>
+const patientCtx = document.getElementById('patientChart');
+
+new Chart(patientCtx, {
+    type: 'bar',
+    data: {
+        labels: ['T1', 'T2', 'T3', 'T4', 'T5', 'T6'],
+        datasets: [{
+            label: 'Số bệnh nhân',
+            data: [120, 150, 180, 200, 170, 210],
+            backgroundColor: '#2563eb'
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: { display: false }
+        }
+    }
+});
+</script>
+<script>
+const testCtx = document.getElementById('testChart');
+
+new Chart(testCtx, {
+    type: 'line',
+    data: {
+        labels: ['T1', 'T2', 'T3', 'T4', 'T5', 'T6'],
+        datasets: [{
+            label: 'Xét nghiệm',
+            data: [80, 95, 110, 130, 125, 150],
+            borderColor: '#16a34a',
+            backgroundColor: 'rgba(22,163,74,0.2)',
+            tension: 0.4
+        }]
+    },
+    options: {
+        responsive: true
+    }
+});
+</script>

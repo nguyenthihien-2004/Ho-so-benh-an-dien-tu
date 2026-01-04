@@ -13,10 +13,11 @@
 
             <p class="auth-desc">Nhập mã 6 số được gửi vào email của bạn.</p>
 
-            <form action="mkmoi.html" method="POST">
+            <form action="verify_code.php" method="POST">
                 <input type="text" maxlength="6" class="auth-input" name="otp" placeholder="Nhập mã OTP" required>
 
-                <button type="submit" class="auth-button">Xác nhận</button>
+                <p class="auth-link"><a href="mkmoi.html">Xác nhận</a></p>
+        
             </form>
 
             <p class="auth-link">Không nhận được mã? <a href="forgot_password.html">Gửi lại</a></p>

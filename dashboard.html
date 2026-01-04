@@ -292,7 +292,26 @@
         }
     });
 </script>
+<script>
+const patientCtx = document.getElementById('patientChart');
 
-</body>
-</html>
+new Chart(patientCtx, {
+    type: 'bar',
+    data: {
+        labels: ['T1', 'T2', 'T3', 'T4', 'T5', 'T6'],
+        datasets: [{
+            label: 'Số bệnh nhân',
+            data: [120, 150, 180, 200, 170, 210],
+            backgroundColor: '#2563eb'
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: { display: false }
+        }
+    }
+});
+</script>
+
 
